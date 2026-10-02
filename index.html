@@ -1,0 +1,758 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mayur Patil | Cybersecurity Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050b14;
+      color: #e8f1ff;
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(5, 11, 20, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #16283d;
+    }
+
+    .nav-container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 18px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00e5ff;
+    }
+
+    .logo span {
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: #cbd8e8;
+      text-decoration: none;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00e5ff;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 25px 60px;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(0,229,255,0.12), transparent 30%),
+        radial-gradient(circle at 20% 80%, rgba(0,100,255,0.10), transparent 30%);
+    }
+
+    .hero-container {
+      max-width: 1150px;
+      width: 100%;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-block;
+      color: #00e5ff;
+      border: 1px solid #00e5ff;
+      padding: 7px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 7vw, 78px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #00e5ff;
+    }
+
+    .hero h2 {
+      font-size: 24px;
+      color: #a9bad0;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: #91a5bd;
+      max-width: 650px;
+      margin-bottom: 30px;
+      font-size: 17px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 7px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .primary {
+      background: #00e5ff;
+      color: #001018;
+    }
+
+    .primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,229,255,0.25);
+    }
+
+    .secondary {
+      border: 1px solid #31506d;
+      color: white;
+    }
+
+    .secondary:hover {
+      border-color: #00e5ff;
+      color: #00e5ff;
+    }
+
+    /* TERMINAL */
+    .terminal {
+      background: #08111d;
+      border: 1px solid #1d3953;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .terminal-header {
+      padding: 13px;
+      background: #0d1927;
+      border-bottom: 1px solid #1d3953;
+      color: #7890a9;
+      font-size: 13px;
+    }
+
+    .terminal-body {
+      padding: 25px;
+      font-family: monospace;
+      font-size: 14px;
+    }
+
+    .terminal-body p {
+      margin: 9px 0;
+      color: #8fa8c0;
+    }
+
+    .green {
+      color: #00e5ff;
+    }
+
+    .white {
+      color: white;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 90px 25px;
+    }
+
+    .section-container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .section-title h2 span {
+      color: #00e5ff;
+    }
+
+    .section-title p {
+      color: #8094aa;
+    }
+
+    /* ABOUT */
+    .about {
+      background: #07101b;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .card {
+      background: #0a1624;
+      border: 1px solid #183149;
+      border-radius: 12px;
+      padding: 28px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #00e5ff;
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: #00e5ff;
+    }
+
+    .card p {
+      color: #9aadc1;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .skill {
+      padding: 24px;
+      background: #0a1624;
+      border: 1px solid #183149;
+      border-radius: 10px;
+    }
+
+    .skill h3 {
+      margin-bottom: 10px;
+    }
+
+    .skill p {
+      color: #8fa2b8;
+      font-size: 14px;
+    }
+
+    .skill-icon {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    /* PROJECTS */
+    .projects {
+      background: #07101b;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .project {
+      background: #0a1624;
+      border: 1px solid #183149;
+      padding: 28px;
+      border-radius: 12px;
+    }
+
+    .project h3 {
+      color: #00e5ff;
+      margin-bottom: 12px;
+    }
+
+    .project p {
+      color: #91a5ba;
+      margin-bottom: 15px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tags span {
+      font-size: 12px;
+      padding: 5px 10px;
+      background: #102438;
+      color: #7cefff;
+      border-radius: 20px;
+    }
+
+    /* EXPERIENCE */
+    .timeline {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .timeline-item {
+      border-left: 2px solid #00e5ff;
+      padding: 0 0 35px 25px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      background: #00e5ff;
+      border-radius: 50%;
+      position: absolute;
+      left: -7px;
+      top: 4px;
+    }
+
+    .timeline-item h3 {
+      color: white;
+    }
+
+    .timeline-item .date {
+      color: #00e5ff;
+      font-size: 14px;
+      margin: 5px 0 10px;
+    }
+
+    .timeline-item p {
+      color: #8fa2b8;
+    }
+
+    /* CONTACT */
+    .contact {
+      background: #07101b;
+    }
+
+    .contact-box {
+      max-width: 750px;
+      margin: auto;
+      text-align: center;
+      background: #0a1624;
+      border: 1px solid #183149;
+      padding: 45px 25px;
+      border-radius: 15px;
+    }
+
+    .contact-box h3 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      color: #8fa2b8;
+      margin-bottom: 25px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      color: #00e5ff;
+      border: 1px solid #24506b;
+      padding: 10px 17px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .contact-links a:hover {
+      background: #00e5ff;
+      color: #001018;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid #16283d;
+      color: #687e96;
+      font-size: 14px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 850px) {
+      .hero-container,
+      .about-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 130px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      section {
+        padding: 70px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Mayur<span>.cyber</span></div>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-container">
+
+      <div>
+        <div class="tag">CYBERSECURITY STUDENT</div>
+
+        <h1>Hello, I'm <span>Mayur</span></h1>
+
+        <h2>Cybersecurity & Ethical Hacking Enthusiast</h2>
+
+        <p>
+          Diploma student passionate about cybersecurity, web application
+          security, vulnerability assessment and ethical hacking. I enjoy
+          learning security tools and building practical cybersecurity projects.
+        </p>
+
+        <div class="buttons">
+          <a href="#projects" class="btn primary">View Projects</a>
+          <a href="#contact" class="btn secondary">Contact Me</a>
+        </div>
+      </div>
+
+      <!-- TERMINAL -->
+      <div class="terminal">
+        <div class="terminal-header">
+          ● ● ● &nbsp; terminal
+        </div>
+
+        <div class="terminal-body">
+          <p><span class="green">$</span> whoami</p>
+          <p class="white">Mayur Patil</p>
+
+          <p><span class="green">$</span> role</p>
+          <p class="white">Cybersecurity Student</p>
+
+          <p><span class="green">$</span> skills</p>
+          <p class="white">Python | Java | C | C++</p>
+
+          <p><span class="green">$</span> tools</p>
+          <p class="white">Burp Suite | Kali Linux</p>
+
+          <p><span class="green">$</span> status</p>
+          <p class="green">Learning & Building...</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="section-container">
+
+      <div class="section-title">
+        <h2>About <span>Me</span></h2>
+        <p>A little information about me</p>
+      </div>
+
+      <div class="about-grid">
+
+        <div class="card">
+          <h3>Who I Am</h3>
+          <p>
+            I am a Diploma student interested in cybersecurity and ethical
+            hacking. My goal is to develop practical skills in identifying
+            vulnerabilities and understanding how web applications can be
+            protected.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>My Focus</h3>
+          <p>
+            My current focus is web application security, vulnerability
+            assessment, penetration testing concepts, security tools and
+            secure software development.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-container">
+
+      <div class="section-title">
+        <h2>My <span>Skills</span></h2>
+        <p>Technologies and tools I work with</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill">
+          <div class="skill-icon">🛡️</div>
+          <h3>Cybersecurity</h3>
+          <p>Web Security, Vulnerability Assessment and Ethical Hacking concepts.</p>
+        </div>
+
+        <div class="skill">
+          <div class="skill-icon">🌐</div>
+          <h3>Web Security</h3>
+          <p>OWASP Top 10, XSS, SQL Injection and security testing.</p>
+        </div>
+
+        <div class="skill">
+          <div class="skill-icon">🔎</div>
+          <h3>Burp Suite</h3>
+          <p>Proxy, HTTP History, Repeater and web request analysis.</p>
+        </div>
+
+        <div class="skill">
+          <div class="skill-icon">🐍</div>
+          <h3>Python</h3>
+          <p>Python programming and basic cybersecurity automation.</p>
+        </div>
+
+        <div class="skill">
+          <div class="skill-icon">☕</div>
+          <h3>Java</h3>
+          <p>Core Java, OOP concepts and application development.</p>
+        </div>
+
+        <div class="skill">
+          <div class="skill-icon">💻</div>
+          <h3>C / C++</h3>
+          <p>Programming fundamentals, problem solving and OOP.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <div class="section-container">
+
+      <div class="section-title">
+        <h2>Featured <span>Projects</span></h2>
+        <p>My practical cybersecurity work</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <div class="project">
+          <h3>Web Application Vulnerability Assessment</h3>
+
+          <p>
+            Security assessment of a web application using Burp Suite and
+            OWASP Juice Shop. The project focuses on understanding common
+            web vulnerabilities and analyzing HTTP requests and responses.
+          </p>
+
+          <div class="tags">
+            <span>Burp Suite</span>
+            <span>OWASP</span>
+            <span>Juice Shop</span>
+            <span>Web Security</span>
+          </div>
+        </div>
+
+        <div class="project">
+          <h3>Cybersecurity Portfolio</h3>
+
+          <p>
+            A responsive personal portfolio website designed to showcase
+            cybersecurity skills, projects, internship experience and
+            technical knowledge.
+          </p>
+
+          <div class="tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Responsive</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-container">
+
+      <div class="section-title">
+        <h2>My <span>Experience</span></h2>
+        <p>Learning and internship journey</p>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <h3>Cybersecurity Internship</h3>
+          <div class="date">3-Month Internship</div>
+
+          <p>
+            Worked on cybersecurity concepts and practical activities related
+            to web application security, vulnerability assessment and ethical
+            hacking tools.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <h3>Web Application Security Project</h3>
+          <div class="date">Academic Project</div>
+
+          <p>
+            Performed a practical vulnerability assessment using Burp Suite
+            with OWASP Juice Shop as the authorized testing environment.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="section-container">
+
+      <div class="section-title">
+        <h2>Get In <span>Touch</span></h2>
+        <p>Let's connect and discuss technology & cybersecurity</p>
+      </div>
+
+      <div class="contact-box">
+
+        <h3>Let's Connect</h3>
+
+        <p>
+          I am interested in cybersecurity, web security and technology.
+          Feel free to connect with me.
+        </p>
+
+        <div class="contact-links">
+          <a href="mailto:your-email@example.com">Email</a>
+
+          <a href="https://www.linkedin.com/" target="_blank">
+            LinkedIn
+          </a>
+
+          <a href="https://github.com/" target="_blank">
+            GitHub
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Mayur Patil | Cybersecurity Portfolio
+  </footer>
+
+
+  <!-- SMALL JAVASCRIPT -->
+  <script>
+    // Change navbar background while scrolling
+    window.addEventListener("scroll", function () {
+      const nav = document.querySelector("nav");
+
+      if (window.scrollY > 50) {
+        nav.style.background = "rgba(5, 11, 20, 0.98)";
+      } else {
+        nav.style.background = "rgba(5, 11, 20, 0.92)";
+      }
+    });
+  </script>
+
+</body>
+</html>
+```
